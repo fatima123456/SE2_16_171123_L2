@@ -23,13 +23,13 @@
 			<td>2</td>
 		  </tr>
         </table>
-        <button>ORDER NEW ITEMS</button>
+        <button onclick="showElement('orderForm')">ORDER NEW ITEMS</button>
         <div class="row">
             <p>MAX STORAGE
             <input id="storage" type="number" value=30>
             <button>CHANGE MAX STOROAGE</button></p>
         </div>
-        <form style="display:none">
+        <form id="orderForm" style="visibility:hidden">
             Item's name:
             <input type="text" name="ItemName">
             <br>
