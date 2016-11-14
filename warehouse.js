@@ -28,3 +28,21 @@ function hideElement(id)
 {
 	document.getElementById(id).style.visibility = "hidden";
 }
+
+/**
+ * @brief Reads items and quantities from the table, and then put them into itemNames and itemQuantities.
+ * @param out [] names Storing item names as an array of strings.
+   @param out [] quantities Storing item quantities as an array of ints.
+ */
+function readTableItems(names,quantities)  
+{
+	// saving the rows of the tables in the firstRow and secondRow variables
+	var firstRow = tableHandle.rows[0];
+	var secondRow = tableHandle.rows[1];
+	// loop to save the information in the table in the two lists expressed as parameters. Note that for the quantities we have to transform them into integers
+	for(var i=0;i<tableHandle.rows[0].cells.length;i++)
+	{
+		names.push(firstRow.cells[i].innerText);
+		quantities.push(parseInt(secondRow.cells[i].innerHTML));
+	}
+}
