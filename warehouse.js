@@ -55,7 +55,7 @@ function wrongStorageAlert()
  */
 function maxStorageAlert()
 {
-	alert("Total number of items ("+ sum(itemQuantities)
+	alert("The number of the items ("+ sum(itemQuantities)
 		  + ") is greater than the maximum storage value(" + maxStorageValue + ").");
 }
 
@@ -156,8 +156,8 @@ function insertItem(name,quantity)
             //after computing the value of the item's quantity update the table with the new value
 			tableHandle.rows[1].cells[index].innerHTML = itemQuantities[index];
 		}
-    var ind = itemNames.length-1;
-    alert(itemQuantities[ind]);
+    if(sum(itemQuantities) > maxStorageValue)
+			maxStorageAlert();
 }
 
 
