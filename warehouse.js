@@ -30,11 +30,19 @@ function hideElement(id)
 }
 
 /**
+ * @brief Tells the user the input was not in the proper format.
+ */
+function submitAlert()
+{
+	alert("The input falls outside the required format. You have to insert a proper string as name and an integer larger than 0 as quantity.");
+}
+
+/**
  * @brief Reads items and quantities from the table, and then put them into itemNames and itemQuantities.
  * @param out [] names Storing item names as an array of strings.
    @param out [] quantities Storing item quantities as an array of ints.
  */
-function readTableItems(names,quantities)  
+function readTable()  
 {
 	// saving the rows of the tables in the firstRow and secondRow variables
 	var firstRow = tableHandle.rows[0];
@@ -42,8 +50,8 @@ function readTableItems(names,quantities)
 	// loop to save the information in the table in the two lists expressed as parameters. Note that for the quantities we have to transform them into integers
 	for(var i=0;i<tableHandle.rows[0].cells.length;i++)
 	{
-		names.push(firstRow.cells[i].innerText);
-		quantities.push(parseInt(secondRow.cells[i].innerHTML));
+		itemNames.push(firstRow.cells[i].innerText);
+		itemQuantities.push(parseInt(secondRow.cells[i].innerHTML));
 	}
 }
 
@@ -91,20 +99,35 @@ function controlQuantity(quantity){
 }
 
 /**
- * @brief Tells the user the input was in an incorrect format.
- */
-function submitAlert()
-{
-	alert("The input falls outside the required format. You have to insert a proper string as name and an integer larger than 0 as quantity.");
-}
-
-/**
  * @brief Adds name and quantity data to the arrays storing them.
  * @param in string name Name of the item to add.
  * @param in string quantity Quantity of the item to add.
  */
 function insertItem(name,quantity)
 {
-	
+	var index = itemNames.indexOf(name);
+    
+    //if the item is not already in the table(index==-1) then add another column in the table, otherwise just update its quantity
+    if(index==-1)
+		{
+			itemNames.push(name);
+			itemQuantities.push(quantity);
+			
+            //get the first row of the table, add a new cell and then put the name in it
+            var nRow = tableHandle.rows[0];
+            var newCell0 = nRow.insertCell(-1);
+            newCell0.innerHTML = name;
+            
+            //get the second row of the table, add a new cell and then put the quantity in it
+            var nRow = tableHandle.rows[1];
+            var newCell1 = nRow.insertCell(-1);
+            newCell1.innerHTML = quantity;
+		}
+	else
+		{
+			itemQuantities[index]+=quantity;
+            //after computing the value of the item's quantity update the table with the new value
+			tableHandle.rows[1].cells[index].innerHTML = itemQuantities[index];
+		}
 }
 
