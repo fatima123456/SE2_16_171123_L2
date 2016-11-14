@@ -13,7 +13,7 @@
             WAREHOUSE MANAGER
         </h1>
         <table id="itemsNamesQuantities">
-          <tr id="namesRow">
+          <tr>
 			<td>monitor</td>
 			<td>keyboard</td>
 			<td>mouse</td>
@@ -27,8 +27,8 @@
         <button onclick="showElement('orderForm')">ORDER NEW ITEMS</button>
         <div class="row">
             <p>MAX STORAGE
-            <input id="storage" type="number" value=30>
-            <button>CHANGE MAX STOROAGE</button></p>
+            <input id="maxStorage" type="number" value=30>
+            <button onclick="changeMaxStorage()">CHANGE MAX STORAGE</button></p>
         </div>
         <form id="orderForm" style="visibility:hidden">
             Item's name:
