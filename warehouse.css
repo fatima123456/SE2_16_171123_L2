@@ -1,0 +1,22 @@
+body{
+    background-color: beige;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: whitesmoke;
+}
+
+table,th,td{
+    border: 1px solid #ddd;
+    border-color: darkgray;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+th, td {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+

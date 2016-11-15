@@ -158,6 +158,7 @@ function insertItem(name,quantity)
 		}
     if(sum(itemQuantities) > maxStorageValue)
 			maxStorageAlert();
+    showItem();
 }
 
 
@@ -198,3 +199,8 @@ function changeMaxStorage()
 		wrongStorageAlert();
     }
 }
+
+//function showItem(){
+//    for(var i=0; i<itemNames.length;i++)
+//        alert(itemNames[i]);
+//}
